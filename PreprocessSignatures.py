@@ -11,7 +11,7 @@ from Utils import get_files, find_start_time, to_array,restrict_sig_array,find_s
 
 # Set paths for where Data is stored
 local_data_folder = Path("C:\\scratch\\dale_data_documentation\\ukdale\\house_1\\")
-file_collection = "AllData"
+file_collection = ""
 
 
 # Import power data of individual appliances
