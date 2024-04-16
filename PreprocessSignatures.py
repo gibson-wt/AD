@@ -10,20 +10,20 @@ import argparse
 from Utils import get_files, find_start_time, to_array,restrict_sig_array,find_start_time_dp, stream_from_file
 
 # Set paths for where Data is stored
-local_data_folder = Path("C:\\Users\\gibso\\Downloads\\DALE_data")
+local_data_folder = Path("C:\\scratch\\dale_data_documentation\\ukdale\\house_1\\")
 file_collection = "AllData"
 
 
 # Import power data of individual appliances
 def import_data(channel):
-    channel_data_path = str(Path(local_data_folder, "house_1/channel_{}.DAT".format(channel)))
+    channel_data_path = str(Path(local_data_folder, "channel_{}.dat".format(channel)))
     df = pd.read_csv(channel_data_path, delimiter=' ', header=None)
     df.columns=["unix_time","power"]
     return df
 
 # Import threshold data for when an appliance is deemed on or off
 def find_standby_data():
-    data_path = str(Path(local_data_folder, "standby_values.csv"))
+    data_path = str("./standby_values.csv"))
     return pd.read_csv(data_path)
 
 
@@ -86,7 +86,7 @@ class IntervalFinder:
         self.files = get_files(file_collection)
         self.start_times = [find_start_time(file) for file in self.files]
 
-        data_path = str(Path(local_data_folder, "house_1/mains.DAT"))
+        data_path = str(Path(local_data_folder, "mains.DAT"))
         self.start_time=self.start_times[0]
         self.end_time=self.start_times[-1]+3600
 
