@@ -6,7 +6,7 @@ from pathlib import Path
 import joblib
 
 
-local_data_folder = Path("C:\\Users\\gibso\\Downloads\\DALE_data")
+data_folder = Path("C:\\scratch\\dale_data")
 
 find_start_time = lambda file_name: int(str(file_name).split('/')[-1].split('-')[1].split('_')[0])
 
@@ -30,7 +30,7 @@ class Scaler:
 
 def get_files(file_):
     # Directory path
-    directory = Path(local_data_folder, file_)
+    directory = Path(data_folder, file_)
 
     # Loop through files in the directory
     files=[]
