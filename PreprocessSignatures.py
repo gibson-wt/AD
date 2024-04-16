@@ -11,7 +11,8 @@ from Utils import get_files, find_start_time, to_array,restrict_sig_array,find_s
 
 # Set paths for where Data is stored
 local_data_folder = Path("C:\\scratch\\dale_data_documentation\\ukdale\\house_1\\")
-file_collection = ""
+my_data_folder = Path("C:\\scratch\\gibsonw\\")
+file_collection = "2017"
 
 
 # Import power data of individual appliances
@@ -365,7 +366,7 @@ def main():
 
     # intfind.find_anom_ps()
 
-    # with open(Path(local_data_folder, 'On_Event_Intervals_{freq}_hp_test.pkl'.format(freq=args.frequency)),'wb') as f:
+    # with open(Path(my_data_folder, 'On_Event_Intervals_{freq}_hp_test.pkl'.format(freq=args.frequency)),'wb') as f:
     #     pickle.dump(intfind.start_events,f)
 
     # with open(Path(local_data_folder, 'Off_Event_Intervals_{freq}_hp.pkl'.format(freq=args.frequency)),'wb') as f:
@@ -373,7 +374,7 @@ def main():
 
     # if args.find_normal_corpus:
     # normal_intvs = intfind.find_normality()
-    # with open(Path(local_data_folder, 'Normal_Event_Intervals_{freq}.pkl'.format(freq=args.frequency)),'wb') as f:
+    # with open(Path(my_data_folder, 'Normal_Event_Intervals_{freq}.pkl'.format(freq=args.frequency)),'wb') as f:
     #     pickle.dump(normal_intvs,f)
     
 
@@ -386,10 +387,10 @@ def main():
     anoms_overlapped=signatures(outliers[0],intfind.files,overlapping=True)
 
     # Pickle on-off event signature data from to save for later use.
-    with open(Path(local_data_folder, 'On_Off_Event_Sigs_{freq}_split.pkl'.format(freq=args.frequency)),'wb') as f:
+    with open(Path(my_data_folder, 'On_Off_Event_Sigs_{freq}_split.pkl'.format(freq=args.frequency)),'wb') as f:
         pickle.dump(anoms_split,f)
 
-    with open(Path(local_data_folder, 'On_Off_Event_Sigs_{freq}_overlapped.pkl'.format(freq=args.frequency)),'wb') as f:
+    with open(Path(my_data_folder, 'On_Off_Event_Sigs_{freq}_overlapped.pkl'.format(freq=args.frequency)),'wb') as f:
         pickle.dump(anoms_overlapped,f)
 
     # Find normal corpus sigantures in the same manner
@@ -399,7 +400,7 @@ def main():
         normal_sigs = signatures(normal_intervals,intfind.files,channel_given=False)
 
         # Pickle normal corpus sigantures to use for later
-        with open(Path(local_data_folder, 'Normal_Event_Sigs_{freq}.pkl'.format(freq=args.frequency)),'wb') as f:
+        with open(Path(my_data_folder, 'Normal_Event_Sigs_{freq}.pkl'.format(freq=args.frequency)),'wb') as f:
             pickle.dump(normal_sigs,f)
 
 
