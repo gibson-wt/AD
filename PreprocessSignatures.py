@@ -384,14 +384,11 @@ def main():
 
     # Construct Dataframe of Signatures, channel, event interval when appliance is turning on.
     anoms_split=signatures(outliers[0],intfind.files)
-    anoms_overlapped=signatures(outliers[0],intfind.files,overlapping=True)
+
 
     # Pickle on-off event signature data from to save for later use.
     with open(Path(my_data_folder, 'On_Off_Event_Sigs_{freq}_split.pkl'.format(freq=args.frequency)),'wb') as f:
         pickle.dump(anoms_split,f)
-
-    with open(Path(my_data_folder, 'On_Off_Event_Sigs_{freq}_overlapped.pkl'.format(freq=args.frequency)),'wb') as f:
-        pickle.dump(anoms_overlapped,f)
 
     # Find normal corpus sigantures in the same manner
     if args.find_normal_corpus == 'True':
