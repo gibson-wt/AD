@@ -24,7 +24,7 @@ def import_data(channel):
 
 # Import threshold data for when an appliance is deemed on or off
 def find_standby_data():
-    data_path = str("./standby_values.csv"))
+    data_path = str("./standby_values.csv")
     return pd.read_csv(data_path)
 
 
