@@ -11,7 +11,7 @@ from Utils import to_array,restrict_sig_array, determine_thres
 from SigMahaKNN import SignatureMahalanobisKNN
 
 # Set paths for where Data is stored
-local_data_folder = Path("C:\\Users\\gibso\\Downloads\\DALE_data")
+local_data_folder = Path("C:\\scratch\\gibsonw\\")
 
 def construct_normal_corpus(df):
     corpus=[]
