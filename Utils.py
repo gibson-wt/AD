@@ -4,9 +4,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 import joblib
+import os
 
-
-data_folder = Path("C:\\scratch\\dale_data")
+data_folder = Path("C:\\scratch\\dale_data\\UK-DALE-2017\\UK-DALE-2017-16kHz\\house_1")
 
 find_start_time = lambda file_name: int(str(file_name).split('/')[-1].split('-')[1].split('_')[0])
 
@@ -31,13 +31,14 @@ class Scaler:
 def get_files(file_):
     # Directory path
     directory = Path(data_folder, file_)
-
-    # Loop through files in the directory
+    
     files=[]
     for file in directory.iterdir():
-        if file.is_file():
+        if file.is_dir():
+            files.extend(get_files(file))
+        elif file.is_file():
             files.append(file)
-    return sorted(files)
+    return sorted(files):
 
 
 # turn list of signatures into an array with signatures stacked ontop of each other
